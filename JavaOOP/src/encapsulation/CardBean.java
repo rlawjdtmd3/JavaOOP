@@ -36,7 +36,7 @@ public class CardBean {
 	public String getWinner() {
 		
 		//(단계4) getter 에서 문제해결 패턴
-		// 제일먼저 리턴타입을 카피 ,,지변으로 선언후 초기화시킴 ,, 
+		// 제일먼저 리턴타입을 카피 ,,지변으로 선언후 초기화시킴 ,,a 
 		String winner = "";
 		if (this.num>this.num2) { //멤변가져온것 ,,
 			winner = name + "승리";
