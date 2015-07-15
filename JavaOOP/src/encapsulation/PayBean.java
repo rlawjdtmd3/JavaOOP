@@ -1,6 +1,6 @@
 package encapsulation;
 /*
- * @ Date : 2015.07.14
+ * @ Date : 2015.07.14 -15
  * @ Author : me
  * @ Story : 월급계산
  * */
@@ -10,7 +10,7 @@ public class PayBean {
 
 	// 멤버필드 영역
 	private String name; // 멤버필드 변수는 초기화를 하지 않는다!!! 멤변은 초기화하지않음 ,,
-	private int salary,tax,money;
+	private int salary;  //,tax,money; // tax , money는 이제 스캐너로 받지않으니지움
 	
 	// 멤버메소드 영역
 	   //setter , getter 문법의 은닉화 
@@ -18,6 +18,10 @@ public class PayBean {
 	public void setName(String name) {
 		this.name = name;
 	}
+	public String getName() {
+		return name;
+	}
+	
 	public void setSalary(int salary) {
 		this.salary = salary;
 	}
@@ -40,7 +44,7 @@ public class PayBean {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "["+name+" 실급여]\n"
+		return "["+this.getName()+" 실급여]\n"
 				 +"월급 : "+this.salary+" 만원\n"
 				 +"세금 : "+this.getTax()+"만원\n"
 				 +"실급여 : "+this.getMoney()+"만원";

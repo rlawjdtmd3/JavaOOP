@@ -3,7 +3,7 @@ package encapsulation;
 import java.util.Scanner;
 
 /*
- * @ Date : 2015.07.14
+ * @ Date : 2015.07.14 -15
  * @ Author : me
  * @ Story : PayBean 받을 메인
  * */
@@ -34,6 +34,7 @@ public class PayMain {
 		payBean.setName(name);
 		payBean.setSalary(salary);
 		
+		System.out.println(payBean.getName()+"님 방갑습니다.");
 		System.out.println(payBean.toString());
 		
 		

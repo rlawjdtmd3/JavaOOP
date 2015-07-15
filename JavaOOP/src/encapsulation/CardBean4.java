@@ -1,0 +1,92 @@
+package encapsulation;
+/*
+ * @ Date : 2015.07.15
+ * @ Author : me
+ * @ Story : 생성자 문법
+ * 생성자는 setter를 통해 값을 할당하는
+ * 기능을 보강하여, 객체가 만들어짐과
+ * 동시에 값을 할당하도록
+ * 특수하게 만들어진 ★메소드
+ * */
+public class CardBean4 {
+/*===== Field =====*/
+	private String name, name2 ;//(,winner  ;단계2) //클래스바로 밑에 멤변 ,, 초기화 하지않음 ,, 
+	private int num, num2  ; //멤변은 지변과 다르게 보안을해야됨 => private , 한번쓰고 버리는것은 지변
+/*===== Constructor =====*/
+	//생성자 위치는 (멤버)필드와 메소드 영역 사이에 위치
+	//생성자 모양
+	//public 클래스이름(){}
+	public CardBean4(){}   
+		  //this 뜻 : 이클래스의 생성자를 뜻함 //this("",0)
+	 //디폴트 생성자
+	public CardBean4(String string) {
+		// setter 역할을 겸용하는 생성자
+		this.name = name ;
+		this.num = (int) ((Math.random()*13)+1);
+		
+    
+	//디폴트 생성자는 개발자가 직접 만들지 않아도
+	//프로그램 내부에서는 생성되 있는 것으로 인식한다.
+	// 그런데 , 이것을 꺼내 든 이유는
+	// new 키워드를 통한 객체생성 역할뿐 아니라
+	// 생성과 동시에 값을 할당하는 기능을 추가 시키기 위해서...
+	
+	
+/*===== Method =====*/	
+	//public void setName(String name) { 
+		// () 안에 값을 파라미터라하고 소속은 지변
+    //this.name = name;
+		// this.name 은 인스턴스변수(멤변)이고
+		// = name 파라미터로 넘어온 지변(스캐너가 받은 값)
+		// 스캐너가 받아 논 값을 가진 지변 값을
+		// 멤변 name에 할당하라 .
+		// 파라미터값과 멤변값의 이름은 달라도 상관없다.
+		// 단, 데이터타입(String, int) 은 반드시 일치해야 한다.
+	
+	//public void setNum() {
+		//외부에서 받는 숫자가 없으므로 파라미터가 필요없다.
+		this.num = (int) ((Math.random()*13)+1);}
+		//1부터 13까지의 정수 중에서 랜덤 숫자를 리턴 ..
+	//}
+	//public void setName2(String name2) {
+		//this.name2 = name2;
+	//}
+	//public void setNum2() {
+		//this.num2 = (int) ((Math.random()*13)+1);
+	//}
+	public String getName() {
+		return name;
+	}
+	public String getName2() {
+		return name2;
+	}
+	public String getWinner() {
+		
+		//(단계4) getter 에서 문제해결 패턴
+		// 제일먼저 리턴타입을 카피 ,,지변으로 선언후 초기화시킴 ,, 
+		String winner = "";
+		if (this.num>this.num2) { //멤변가져온것 ,,
+			winner = name + "승리";
+		} else if(this.num2>this.num){
+			winner = name2+ "승리";
+
+		}else{
+			winner = "비김";
+		}
+		
+		return winner;
+	}// 스캐너로 받지않고 연산만하는 녀석 set이필요없으면 멤변에서 winner를 지움( 단계 1) 
+	 //winner 는 외부로부터 받는것이아니라 연산해서 출력하는것 ,, 그래서 get
+	
+	
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "["+name+" : "+num+"] vs ["+name2+" : "+num2+"]\n"
+				+this.getWinner(); //(단계3) 메소드를만들었으면winner를 this.getwinner() 로 바꿈
+				
+	}
+	}
+	
+
