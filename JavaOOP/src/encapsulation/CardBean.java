@@ -19,7 +19,7 @@ public class CardBean {
 	public CardBean(){}   
 		  //this 뜻 : 이클래스의 생성자를 뜻함 //this("",0)
 	 //디폴트 생성자
-	public CardBean(String string) {
+	public CardBean(String name) {
 		// setter 역할을 겸용하는 생성자
 		this.name = name ;
 		this.num = (int) ((Math.random()*13)+1);

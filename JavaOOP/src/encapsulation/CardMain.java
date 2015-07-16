@@ -21,24 +21,16 @@ public class CardMain {
 	public static void main(String[] args) {
 		
 		//선언부 ==> 집에 있는 유저가 자기 모니터 입력
-		String name = "", name2 =""; // 지변초기화 ,, 메인메소드 영역안에 바로밑에있어서 지역변수임
-		int num = 0 , num2 =0;
+		
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("이름 : ");
-		name = scanner.next();
-		
+		CardBean hong = new CardBean(scanner.next());
 		System.out.println("이름2 : ");
-		name2 = scanner.next();
-		
-		
-		//인터넷망을 타고 데이터 값이 게임회사로 들어옴
-		CardBean hong = new CardBean(name);
-		CardBean kim = new CardBean(name2);	
+		CardBean kim = new CardBean(scanner.next());	
+		// 인터넷 망을 타고 데이터값이 게임회사 들어옴
 		CardGame game = new CardGame(hong,kim);
-		
-	
-		// 사용자가 결과화면을 보는 중 .....
-		System.out.println(game.getWinner());
+		// 사용자가 결과화면을 보는 중 .
+		System.out.println(game.toString());
 	}
 	
 	
