@@ -56,8 +56,8 @@ public class BankBook implements Account {
 	
 	/*=====멤버 필드 =====*/
 	
-	private static String BANk ;    //BANK = >상수아니면 클래스변수는 대문자로쓰는것이 약속
-	
+	// 잘못알려주심 private static String BANk ;    //BANK = >상수아니면 클래스변수는 대문자로쓰는것이 약속
+	public static String BANK;  //이게맞는것 ,,
 	//private static final String bank = "아이티뱅크";   final 빼본것,,
 
 	private int bankbookNo;
@@ -82,7 +82,7 @@ public class BankBook implements Account {
 	}
 	
 	public BankBook(String name) {
-		this.BANk = "아이티뱅크";
+		this.BANK = "아이티뱅크";
 		//계좌번호는 5자리 숫자 , 랜덤숫자 5자리 
 		// 9999 - 10000 - .....- 100000
 		this.bankbookNo = (int) ((Math.random()*99999)+10000);
@@ -111,7 +111,7 @@ public class BankBook implements Account {
 	@Override                           
 	public String toString() { // 파라미터는 "문" 외부에서 받아들이는
 		return "===============\n"
-				+ "["+BANk+"]\n"
+				+ "["+BANK+"]\n"
 				+ " 계좌번호 : " +bankbookNo+"\n"
 				+ " 이름 :"+ name+"\n"
 				+ " 잔액 :"+ money+"원\n"
