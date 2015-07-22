@@ -23,23 +23,24 @@ public class RobotMain {
 		gunBot.charge(10);
 		gunBot.run(10);
 		gunBot.setAttackpoint(50);
-		gunBot.status();
+		//gunBot.status();  //일일히쓰지말고 아래 배열로 한번에 객체가 50개면 일일히다할꺼야? 
 		
 		ShieldBot shieldBot = new ShieldBot();
 		shieldBot.charge(20);
 		shieldBot.run(20);
 		shieldBot.setShieldpoint(50);
-		shieldBot.status();
+		//shieldBot.status();
+		shieldBot.run(30);
 		
 		
 		
-		Robot[] robot = new Robot[2];
+		Robot[] robots = new Robot[2];   //Robot이란 인터페이스타입의 배열을 선언한것 
 	
-		robot[0] = GunBot;
-		robot[1] = ShieldBot;
+		robots[0] = gunBot;                 // 객체하나하나 배열에 넣고
+		robots[1] = shieldBot;
 		
-		for(Product product : cart){
-			product.showInfo();
+		for(Robot robot : robots){   // robots란 배열에 Robot타입의 robot 객체를 for문으로 실행..
+			robot.status();
 		}
 	
 	
