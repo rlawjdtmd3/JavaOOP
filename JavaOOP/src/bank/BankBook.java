@@ -1,12 +1,15 @@
 package bank;
-import bank.Account;
+
 
 /*
  * @ Date : 2015.07.22
  * @ Author : me
  * @ Story : 
  * */
-public class BankBook implements Account{
+
+
+//최종 .. 실습이 너무커져서 인터페이스 생각안하고 일반클래스로 생각하고 하겠음 ..
+public class BankBook {        //(implement 포함된 구현클래스 => 추가로막만들면안됨) ,, implement 부분 지우겠읍 ..account 인터페이스 지우겟음
 
 /*=====멤버 필드 =====*/
 	
@@ -16,12 +19,7 @@ public class BankBook implements Account{
 	private String name;
 	private int money;   
 	private int pass;
-	private String msg; 
-	
-	
-	
-	
-	
+	private String msg;
 	
 	public BankBook() {
 		// TODO Auto-generated constructor stub
@@ -33,61 +31,28 @@ public class BankBook implements Account{
 		// 9999 - 10000 - .....- 100000
 		this.bankbookNo = (int) ((Math.random()*99999)+10000);
 		this.name = name ;   //이름은 입력받아야되니깐 외부에서 입력받아와서 값을 받아서 넣어야겠구나,, 그런디 받을수있는건 파라미터뿐 
-	
-		//this.money = money ; 돈은바뀔수 있자낭
 		
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
 	/*=====멤버메소드 =====*/
 
-	@Override                           
-	public String toString() { // 파라미터는 "문" 외부에서 받아들이는
+	//@Override                           
+	public String showAccount() { // 파라미터는 "문" 외부에서 받아들이는
 		return "===============\n"
 				+ "["+BANK+"]\n"
 				+ " 계좌번호 : " +bankbookNo+"\n"
 				+ " 이름 :"+ name+"\n"
 				+ " 잔액 :"+ money+"원\n"
-				+ "===============";             // syso아웃에 던져질녀석
-	} //모든클래스는 tostring을 가지고있다 
+				+ "===============";            
+	} 
 
-
-	public int getBankbookNo() {
-		return bankbookNo;
-	}
-
-
-	public String getName() {
-		return name;
-	}
-
-
-	public int getMoney() {
-		return money;
-	}
-
-	
-	public int getPass() {
-		return pass;
-	}
-	
-	
-	
+	//@Override 
 	public void setPass(int pass) {
 		this.pass = pass;
 	}
 
-	@Override
+	//@Override
 	public void withdraw(int money) {
-		// 파라미터 값이 정상값이 아닌 상태를 
-		// 추적해서 필터링하는 로직이 필요해짐 
 		// == > 유효성체크
 		if (money <= 0) {
 			msg = " 출금액은 0보다 커야 합니다.";
@@ -99,7 +64,7 @@ public class BankBook implements Account{
 		}
 	}
 
-	@Override
+	//@Override
 	public void deposit(int money) {
 		if (money <= 0) {
 			msg = " 출금액은 0보다 커야 합니다.";
@@ -108,5 +73,43 @@ public class BankBook implements Account{
 
 		}
 	}
+
+	public int getBankbookNo() {
+		return bankbookNo;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public int getMoney() {
+		return money;
+	}
+
+	public int getPass() {
+		return pass;
+	}
+
+	public String getMsg() {
+		return msg;
+	}
+
+	public void setBankbookNo(int bankbookNo) {
+		this.bankbookNo = bankbookNo;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setMoney(int money) {
+		this.money = money;
+	}
+
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
+	
+	
 	
 }
